@@ -161,3 +161,24 @@ Route::get('/hello', function () {
 
 //     return $hello;
 // });
+
+# Konsep View dan Route
+
+# 1. Menggunakan Return 
+
+// Route::get('/mahasiswa', function() {
+
+//     $arrMahasiswa = ["Suhendar Aryadi","Muhammad","Annisa","Abdul"];
+//     return view('universitas.mahasiswa', ['mahasiswa' => $arrMahasiswa]);
+// });
+
+# 2. Menggunakan With
+
+Route::get('/mahasiswa', function() {
+
+    $arrMahasiswa = ["Suhendar Aryadi","Muhammad","Annisa","Abdul"];
+    
+    return view('universitas.mahasiswa')->with('mahasiswa', $arrMahasiswa);
+    
+});
+
