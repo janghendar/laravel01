@@ -142,3 +142,22 @@ Route::get('/hello', function () {
 
     return 'Selamat Datang di laravel';
 });
+
+Route::get('/hello', function () {
+
+    $hello = ['Hello World', 2 => ['Hello jakarta', 'Hello Medan']];
+    dump($hello);
+
+    return $hello;
+});
+
+// Route::get('/hello', function () {
+
+//     $hello = ['Hello World', 2 => ['Hello jakarta', 'Hello Medan']];
+//     echo '<pre>';
+//     print_r($hello);
+//     echo '</pre>';
+//     die();
+
+//     return $hello;
+// });
