@@ -46,3 +46,23 @@ Route::get( '/stok_barang/{jenis}/{merek}', function($jenis, $merek){
     return "Cetak sisa stok untuk $jenis $merek";
 
 });
+
+Route::get( '/jumlah/{jenis_hewan}/{nama_hewan}', function($a, $b){
+    return "Cetak sisa stok untuk $a $b";
+
+});
+
+# Rute dengann optional parameter
+
+Route::get( '/stok_barang/{jenis?}/{merek?}', 
+    function($x = 'smartphone', $y = 'samsung'){
+    return "Cetak sisa stok untuk $x $y";
+
+});
+
+# Route parameter dengan regular expression
+
+Route::get('user/{id}', function($id) {
+    return "Tampilkan user dengan id = $id";
+
+}) -> where('id', '[0-9]+');
