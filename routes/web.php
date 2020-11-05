@@ -166,19 +166,70 @@ Route::get('/hello', function () {
 
 # 1. Menggunakan Return 
 
-// Route::get('/mahasiswa', function() {
-
-//     $arrMahasiswa = ["Suhendar Aryadi","Muhammad","Annisa","Abdul"];
-//     return view('universitas.mahasiswa', ['mahasiswa' => $arrMahasiswa]);
-// });
-
-# 2. Menggunakan With
-
 Route::get('/mahasiswa', function() {
 
     $arrMahasiswa = ["Suhendar Aryadi","Muhammad","Annisa","Abdul"];
-    
-    return view('universitas.mahasiswa')->with('mahasiswa', $arrMahasiswa);
-    
+    return view('universitas.mahasiswa', ['mahasiswa' => $arrMahasiswa]);
 });
+
+# 2. Menggunakan With
+
+// Route::get('/mahasiswa', function() {
+
+//     $arrMahasiswa = ["Suhendar Aryadi","Muhammad","Annisa","Abdul"];
+    
+//     return view('universitas.mahasiswa')->with('mahasiswa', $arrMahasiswa);
+    
+// });
+
+# 3. With dengan chaining (di sambung)
+
+// Route::get('mahasiswa2', function() {
+//     return view('universitas.mahasiswa2')
+//     ->with('mahasiswa01', 'Risa Lestari')
+//     ->with('mahasiswa02', 'Rudi Hermawan')
+//     ->with('mahasiswa03','Bambang Kusumo'); 
+
+// });
+
+Route::get('mahasiswa2', function() {
+    return view('universitas.mahasiswa2')
+    ->withmahasiswa01('Risa Lestari')
+    ->withmahasiswa02('Rudi hermawan')
+    ->withmahasiswa03('Bambang Kusumo');
+
+});
+
+# Fungsi Compact
+
+// Route::get('/mahasiswa', function() {
+
+//     $mahasiswa01 = 'Risa Lestari';
+//     $mahasiswa02 = 'Rudi Hermawan';
+//     $mahasiswa03 = 'Bambang Kusumo';
+//     $mahasiswa04 = 'Lisa Permata';
+
+//     return view ('universitas.mahasiswa', compact("mahsiswa01", "mahasiswa02", "mahasiswa03", "mahasiswa04"));
+// });
+
+// Route::get('/mahasiswa', function() {
+
+//     $mahasiswa01 = 'Risa Lestari';
+//     $mahasiswa02 = 'Rudi Hermawan';
+//     $mahasiswa03 = 'Bambang Kusumo';
+//     $mahasiswa04 = 'Lisa Permata';
+
+//     return view ('universitas.mahasiswa')->with(compact("mahasiswa01", "mahasiswa02", "mahasiswa03", "mahasiswa04"));
+// });
+
+
+# Latihan Membuat View
+
+// Route::get('mahasiswa/{nama}/{umur}/{kotaAsal}', function($nama, $umur, $kotaAsal) {
+//     return view ('universitas.mahasiswa')
+//     ->with('nama', $nama)
+//     ->with('umur', $umur)
+//     ->with('kotaAsal', $kotaAsal);
+
+// });
 
